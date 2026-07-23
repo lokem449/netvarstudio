@@ -48,7 +48,8 @@ section{padding:96px 48px;}
 .portfolio{background:var(--primary);}
 .portfolio .section-tag{color:var(--accent);}.portfolio .section-title{color:var(--white);}
 .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px;}
-.portfolio-card{background:var(--mid);aspect-ratio:4/3;position:relative;overflow:hidden;}
+.portfolio-card{background:var(--mid);aspect-ratio:4/3;position:relative;overflow:hidden;display:block;text-decoration:none;color:inherit;cursor:pointer;transition:opacity .2s;}
+.portfolio-card:hover{opacity:.85;}
 .portfolio-card-inner{width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;background:linear-gradient(to top,rgba(13,25,34,0.9),transparent 60%);}
 .portfolio-preview{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:48px;}
 .portfolio-card:nth-child(2) .portfolio-preview{background:#2a3d4d;}
@@ -132,9 +133,9 @@ section{padding:96px 48px;}
 <section class="portfolio" id="portfolio">
   <div class="section-tag">Portfolio</div><h2 class="section-title">Beispielprojekte.</h2>
   <div class="portfolio-grid">
-    <div class="portfolio-card"><div class="portfolio-preview" style="background:var(--mid)">🔧</div><div class="portfolio-card-inner"><div class="portfolio-category">Klempner</div><div class="portfolio-name">Mustermann Haustechnik</div></div></div>
-    <div class="portfolio-card"><div class="portfolio-preview">⚡</div><div class="portfolio-card-inner"><div class="portfolio-category">Elektriker</div><div class="portfolio-name">Elektro Beispiel GmbH</div></div></div>
-    <div class="portfolio-card"><div class="portfolio-preview">🦷</div><div class="portfolio-card-inner"><div class="portfolio-category">Zahnarztpraxis</div><div class="portfolio-name">Praxis Dr. Muster</div></div></div>
+    <a class="portfolio-card" href="https://brandt-haustechnik.vercel.app" target="_blank" rel="noopener"><div class="portfolio-preview" style="background:var(--mid)">🔧</div><div class="portfolio-card-inner"><div class="portfolio-category">Klempner</div><div class="portfolio-name">Mustermann Haustechnik</div></div></a>
+    <a class="portfolio-card" href="https://elektro-wagner.vercel.app" target="_blank" rel="noopener"><div class="portfolio-preview">⚡</div><div class="portfolio-card-inner"><div class="portfolio-category">Elektriker</div><div class="portfolio-name">Elektro Beispiel GmbH</div></div></a>
+    <a class="portfolio-card" href="https://praxis-dr-kellner.vercel.app" target="_blank" rel="noopener"><div class="portfolio-preview">🦷</div><div class="portfolio-card-inner"><div class="portfolio-category">Zahnarztpraxis</div><div class="portfolio-name">Praxis Dr. Muster</div></div></a>
   </div>
   <p class="portfolio-note">— Beispielprojekte zur Darstellung unseres Stils —</p>
 </section>
