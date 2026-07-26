@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website-Check — Netvar Studio</title>
+<meta name="description" content="Kostenloser Website-Check für Handwerksbetriebe und kleine Unternehmen: Ladegeschwindigkeit, Handy-Tauglichkeit und Erreichbarkeit Ihrer Website in einer Minute geprüft.">
+<link rel="canonical" href="https://netvarstudio.de/check.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kostenloser Website-Check — Netvar Studio">
+<meta property="og:description" content="Prüfen Sie in einer Minute, wie Ihre Website auf dem Handy abschneidet. Ohne Anmeldung.">
+<meta property="og:url" content="https://netvarstudio.de/check.html">
+<meta property="og:locale" content="de_DE">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;800&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#0d1922;--accent:#4a6b85;--mid:#3d5060;--soft:#607d8f;--mist:#8fa3b8;--warm:#f4f3f0;--white:#ffffff;--ok:#2e7d5b;--bad:#b4472f;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',Arial,sans-serif;background:var(--white);color:var(--primary);-webkit-font-smoothing:antialiased;}
+a{color:var(--accent);}
+.top{padding:20px 24px;border-bottom:1px solid rgba(13,25,34,0.08);display:flex;justify-content:space-between;align-items:center;}
+.logo{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2px;text-decoration:none;color:var(--primary);}
+.top a.back{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--soft);text-decoration:none;}
+.wrap{max-width:680px;margin:0 auto;padding:56px 24px 80px;}
+.kicker{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:16px;}
+h1{font-size:34px;font-weight:800;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;}
+.sub{font-size:16px;font-weight:300;color:var(--mid);line-height:1.65;margin-bottom:32px;}
+form{display:flex;gap:10px;flex-wrap:wrap;}
+input[type=url],input[type=email]{flex:1;min-width:220px;padding:15px 16px;font-family:'DM Sans',sans-serif;font-size:16px;border:1px solid rgba(13,25,34,0.18);border-radius:4px;background:var(--white);color:var(--primary);}
+input:focus{outline:none;border-color:var(--accent);}
+button{padding:15px 26px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;background:var(--primary);color:var(--white);border:0;border-radius:4px;cursor:pointer;}
+button:disabled{opacity:.45;cursor:default;}
+.hint{font-size:13px;color:var(--soft);margin-top:12px;line-height:1.6;}
+.status{margin-top:28px;padding:18px 20px;border-radius:4px;background:var(--warm);font-size:15px;color:var(--mid);line-height:1.6;display:none;}
+.status.show{display:block;}
+.err{background:#fbecea;color:var(--bad);}
+.spin{display:inline-block;width:11px;height:11px;border:2px solid rgba(13,25,34,.18);border-top-color:var(--accent);border-radius:50%;animation:sp .8s linear infinite;margin-right:9px;vertical-align:-1px;}
+@keyframes sp{to{transform:rotate(360deg)}}
+#result{display:none;margin-top:40px;}
+#result.show{display:block;}
+.verdict{padding:22px;border-radius:4px;background:var(--primary);color:var(--white);margin-bottom:26px;}
+.verdict .cat{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--mist);text-transform:uppercase;}
+.verdict .site{font-size:19px;font-weight:800;margin:8px 0 12px;word-break:break-all;}
+.verdict p{font-size:15px;font-weight:300;line-height:1.7;color:#dbe4ec;}
+.row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:15px 0;border-bottom:1px solid rgba(13,25,34,0.1);}
+.row .lbl{font-size:15px;}
+.row .val{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--soft);text-align:right;}
+.mark{display:inline-block;width:19px;height:19px;border-radius:50%;margin-right:11px;vertical-align:-4px;position:relative;flex:none;}
+.mark.y{background:rgba(46,125,91,.13);}
+.mark.n{background:rgba(180,71,47,.13);}
+.mark::after{content:'';position:absolute;inset:0;display:block;background-repeat:no-repeat;background-position:center;}
+.mark.y::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.4l2.6 2.6L10 3.6' stroke='%232e7d5b' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");}
+.mark.n::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 12 12'%3E%3Cpath d='M3 3l6 6M9 3l-6 6' stroke='%23b4472f' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");}
+.offer{margin-top:34px;padding:24px;border:1px solid rgba(13,25,34,0.14);border-radius:4px;}
+.offer h2{font-size:19px;font-weight:800;margin-bottom:8px;}
+.offer p{font-size:14px;font-weight:300;color:var(--mid);line-height:1.65;margin-bottom:18px;}
+.consent{display:flex;gap:11px;align-items:flex-start;margin:16px 0 18px;}
+.consent input{margin-top:3px;width:17px;height:17px;flex:none;}
+.consent label{font-size:13px;color:var(--mid);line-height:1.6;}
+.foot{margin-top:52px;padding-top:22px;border-top:1px solid rgba(13,25,34,0.1);font-size:12px;color:var(--soft);line-height:1.8;}
+@media(max-width:600px){.wrap{padding:36px 20px 64px;}h1{font-size:27px;}button{width:100%;}input[type=url],input[type=email]{min-width:100%;}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a class="logo" href="/">NETVAR STUDIO</a>
+  <a class="back" href="/">← ZURÜCK</a>
+</div>
+
+<div class="wrap">
+  <div class="kicker">Kostenlos · ohne Anmeldung</div>
+  <h1>Wie gut ist Ihre Website wirklich?</h1>
+  <p class="sub">Geben Sie Ihre Adresse ein. Wir prüfen, ob Ihre Seite erreichbar ist, auf dem Handy funktioniert und wie schnell sie lädt — und sagen Ihnen ehrlich, was daran gut ist und was nicht.</p>
+
+  <form id="f">
+    <input type="url" id="url" placeholder="ihre-firma.de" required autocomplete="url" inputmode="url">
+    <button type="submit" id="go">Prüfen</button>
+  </form>
+  <p class="hint">Die Prüfung dauert etwa 30 Sekunden. Sie müssen nichts angeben außer der Adresse.</p>
+
+  <div class="status" id="status"></div>
+
+  <div id="result">
+    <div class="verdict">
+      <div class="cat" id="cat"></div>
+      <div class="site" id="site"></div>
+      <p id="laudo"></p>
+    </div>
+    <div id="rows"></div>
+
+    <div class="offer">
+      <h2>Sollen wir uns das genauer ansehen?</h2>
+      <p>Wenn Sie möchten, schauen wir uns Ihre Seite in Ruhe an und schicken Ihnen konkrete Vorschläge — was zuerst, was das bringt, was es kostet. Kein Abo, kein Anruf ohne Ihr Einverständnis.</p>
+      <form id="f2">
+        <input type="email" id="email" placeholder="ihre@email.de" required autocomplete="email">
+        <div class="consent">
+          <input type="checkbox" id="consent" required>
+          <label for="consent">Ja, Netvar Studio darf mich zu dieser Website-Analyse per E-Mail kontaktieren. Ich kann das jederzeit formlos widerrufen. Hinweise zum Datenschutz finden Sie <a href="/#datenschutz" target="_blank" rel="noopener">hier</a>.</label>
+        </div>
+        <button type="submit" id="go2">Vorschläge anfordern</button>
+      </form>
+      <div class="status" id="status2"></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Netvar Studio · <a href="/#impressum">Impressum</a> · <a href="/#datenschutz">Datenschutz</a><br>
+    Wir speichern die geprüfte Adresse, um die Analyse zu erstellen. Ihre E-Mail speichern wir nur, wenn Sie oben ausdrücklich zustimmen.
+  </div>
+</div>
+
+<script>
+var API = 'https://n8n-f3xi.sliplane.app/webhook/auditoria';
+var ultimo = null;
+
+function $(id){ return document.getElementById(id); }
+function msg(el, texto, erro){
+  el.className = 'status show' + (erro ? ' err' : '');
+  el.innerHTML = texto;
+}
+
+$('f').addEventListener('submit', function(e){
+  e.preventDefault();
+  var url = $('url').value.trim();
+  if (!url) return;
+  ultimo = url;
+  $('go').disabled = true;
+  $('result').className = '';
+  msg($('status'), '<span class="spin"></span>Ihre Seite wird geprüft. Das dauert etwa 30 Sekunden — bitte lassen Sie das Fenster offen.', false);
+
+  fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ url: url })
+  })
+  .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); })
+  .then(function(res){
+    $('go').disabled = false;
+    if (!res.ok || !res.j.ok) {
+      msg($('status'), res.j.erro || 'Die Prüfung hat nicht geklappt. Bitte versuchen Sie es noch einmal.', true);
+      return;
+    }
+    $('status').className = 'status';
+    mostra(res.j);
+  })
+  .catch(function(){
+    $('go').disabled = false;
+    msg($('status'), 'Die Prüfung hat nicht geklappt. Bitte versuchen Sie es in ein paar Minuten noch einmal.', true);
+  });
+});
+
+function mostra(d){
+  var nomes = { 'Sem Site': 'Keine Website gefunden', 'Zumbi': 'Handlungsbedarf', 'Lento': 'Handlungsbedarf', 'Saudavel': 'Solide' };
+  $('cat').textContent = nomes[d.categoria] || d.categoria;
+  $('site').textContent = d.url;
+  $('laudo').textContent = d.relatorio || '';
+
+  var html = '';
+  (d.itens || []).forEach(function(i){
+    html += '<div class="row"><div class="lbl"><span class="mark ' + (i.ok ? 'y' : 'n') + '"></span>' + esc(i.label) + '</div>'
+          + '<div class="val">' + esc(i.valor) + '</div></div>';
+  });
+  $('rows').innerHTML = html;
+  $('result').className = 'show';
+  $('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c];
+  });
+}
+
+$('f2').addEventListener('submit', function(e){
+  e.preventDefault();
+  if (!$('consent').checked) return;
+  $('go2').disabled = true;
+  msg($('status2'), '<span class="spin"></span>Wird gesendet…', false);
+
+  fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ url: ultimo, email: $('email').value.trim(), consent: true })
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(j){
+    if (j && j.ok) {
+      msg($('status2'), 'Danke. Wir melden uns per E-Mail — in der Regel innerhalb von zwei Werktagen.', false);
+      $('f2').style.display = 'none';
+    } else {
+      $('go2').disabled = false;
+      msg($('status2'), (j && j.erro) || 'Das hat nicht geklappt. Bitte versuchen Sie es noch einmal.', true);
+    }
+  })
+  .catch(function(){
+    $('go2').disabled = false;
+    msg($('status2'), 'Das hat nicht geklappt. Bitte versuchen Sie es noch einmal.', true);
+  });
+});
+</script>
+</body>
+</html>
