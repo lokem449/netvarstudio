@@ -3,9 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Partnerprogramm — Netvar Studio</title>
-<meta name="description" content="White-Label-Produktion für Agenturen: fertige Websites in 48 Stunden, unter Ihrer Marke. Sie behalten den Kunden, wir liefern die Umsetzung.">
-<meta name="robots" content="noindex, nofollow">
+<title>White-Label-Agentur für Webdesign — Netvar Studio</title>
+<meta name="description" content="White-Label-Webdesign für Agenturen: fertige Websites in 48 Stunden unter Ihrer Marke. Festpreise ab 990 € netto, keine Mindestabnahme, Kundenschutz vertraglich zugesichert.">
+<link rel="canonical" href="https://netvarstudio.de/white-label-agentur.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="White-Label-Webdesign für Agenturen — 48 Stunden Lieferzeit">
+<meta property="og:description" content="Fertige Websites in 48 Stunden, unter Ihrer Marke. Festpreise ab 990 €. Sie behalten den Kunden, wir liefern die Umsetzung.">
+<meta property="og:url" content="https://netvarstudio.de/white-label-agentur.html">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://netvarstudio.de/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;800&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
@@ -75,6 +82,27 @@ section{padding:96px 48px;}
 .contact .section-tag{color:var(--accent);}.contact .section-title{color:var(--white);}
 .contact-lead{font-size:17px;font-weight:300;color:var(--mist);line-height:1.7;max-width:600px;margin-bottom:40px;}
 .contact-mail{font-size:clamp(22px,3vw,34px);font-weight:800;color:var(--white);text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:4px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:720px;}
+.form-grid .full{grid-column:1/-1;}
+.form-grid label{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
+.form-grid input,.form-grid textarea,.form-grid select{width:100%;padding:14px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(143,163,184,0.3);color:var(--white);font-family:'DM Sans',Arial,sans-serif;font-size:15px;font-weight:300;border-radius:0;}
+.form-grid input:focus,.form-grid textarea:focus,.form-grid select:focus{outline:none;border-color:var(--accent);background:rgba(255,255,255,0.08);}
+.form-grid input::placeholder,.form-grid textarea::placeholder{color:var(--soft);}
+.form-grid select option{background:var(--primary);color:var(--white);}
+.form-grid textarea{min-height:110px;resize:vertical;}
+.consent{grid-column:1/-1;display:flex;gap:12px;align-items:flex-start;margin-top:4px;}
+.consent input{width:auto;margin-top:3px;flex-shrink:0;}
+.consent label{font-family:'DM Sans',Arial,sans-serif;font-size:13px;font-weight:300;letter-spacing:0;text-transform:none;color:var(--mist);line-height:1.6;margin:0;}
+.consent label a{color:var(--accent);}
+.form-submit{grid-column:1/-1;justify-self:start;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;background:var(--white);color:var(--primary);padding:16px 36px;border:0;cursor:pointer;margin-top:8px;}
+.form-submit:disabled{opacity:.5;cursor:wait;}
+.form-status{grid-column:1/-1;display:none;padding:16px;font-size:14px;font-weight:300;line-height:1.6;border-left:3px solid var(--accent);background:rgba(255,255,255,0.04);color:var(--mist);}
+.form-status.show{display:block;}
+.form-status.err{border-left-color:#c96;}
+.form-status a{color:var(--white);}
+.form-alt{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--soft);margin-top:28px;letter-spacing:0.5px;}
+.form-alt a{color:var(--mist);}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr;}}
 .footer-bottom{background:#060d12;padding:24px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.04);}
 .footer-copy{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--soft);}
 .footer-links{display:flex;gap:24px;}
@@ -263,9 +291,102 @@ section{padding:96px 48px;}
 <section class="contact" id="kontakt">
   <div class="section-tag">Kontakt</div>
   <h2 class="section-title">Recherchieren Sie uns zuerst.</h2>
-  <p class="contact-lead">Schauen Sie sich netvarstudio.de an, prüfen Sie die Referenzprojekte, lesen Sie die Abgrenzung oben. Wenn es passt, schreiben Sie uns eine Zeile — mit dem Projekt, das gerade in Ihrer Warteschlange liegt.</p>
-  <a href="mailto:info@netvarstudio.de?subject=Partnerprogramm" class="contact-mail">info@netvarstudio.de</a>
+  <p class="contact-lead">Schauen Sie sich netvarstudio.de an, prüfen Sie die Referenzprojekte, lesen Sie die Abgrenzung oben. Wenn es passt: sagen Sie uns, welches Projekt gerade in Ihrer Warteschlange liegt. Sie bekommen Preis und Termin, keine Verkaufsschleife.</p>
+
+  <form class="form-grid" id="partnerForm">
+    <div>
+      <label for="agentur">Agentur</label>
+      <input type="text" id="agentur" name="agentur" required autocomplete="organization" placeholder="Name Ihrer Agentur">
+    </div>
+    <div>
+      <label for="name">Ansprechpartner</label>
+      <input type="text" id="name" name="name" required autocomplete="name" placeholder="Vor- und Nachname">
+    </div>
+    <div>
+      <label for="email">E-Mail</label>
+      <input type="email" id="email" name="email" required autocomplete="email" placeholder="ihre@agentur.de">
+    </div>
+    <div>
+      <label for="paket">Interessantes Paket</label>
+      <select id="paket" name="paket">
+        <option value="">— noch offen —</option>
+        <option value="Starter">Starter — 3 Seiten, 48 h, 990 €</option>
+        <option value="Growth">Growth — 5 Seiten, 72 h, 1.490 €</option>
+        <option value="Premium">Premium — 8 Seiten, 5 Werktage, 1.990 €</option>
+      </select>
+    </div>
+    <div class="full">
+      <label for="projekt">Welches Projekt liegt gerade an?</label>
+      <textarea id="projekt" name="projekt" placeholder="Branche, ungefährer Umfang, Wunschtermin. Zwei Sätze genügen."></textarea>
+    </div>
+    <div class="consent">
+      <input type="checkbox" id="consent" name="consent" required>
+      <label for="consent">Ja, Netvar Studio darf mich zu dieser Anfrage per E-Mail kontaktieren. Ich kann das jederzeit formlos widerrufen. Hinweise zum Datenschutz finden Sie <a href="/#datenschutz" target="_blank" rel="noopener">hier</a>.</label>
+    </div>
+    <button type="submit" class="form-submit" id="partnerSubmit">Anfrage senden</button>
+    <div class="form-status" id="partnerStatus"></div>
+  </form>
+
+  <p class="form-alt">Lieber direkt? <a href="mailto:info@netvarstudio.de?subject=White-Label-Anfrage">info@netvarstudio.de</a></p>
 </section>
+
+<script>
+(function(){
+  var API = 'https://n8n-f3xi.sliplane.app/webhook/partner-anfrage';
+  var MAIL = 'info@netvarstudio.de';
+  var form = document.getElementById('partnerForm');
+  var btn = document.getElementById('partnerSubmit');
+  var box = document.getElementById('partnerStatus');
+
+  function show(text, isErr){
+    box.className = 'form-status show' + (isErr ? ' err' : '');
+    box.innerHTML = text;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Wird gesendet…';
+
+    var payload = {
+      agentur: document.getElementById('agentur').value.trim(),
+      name: document.getElementById('name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      paket: document.getElementById('paket').value,
+      projekt: document.getElementById('projekt').value.trim(),
+      consent: true,
+      quelle: 'white-label-agentur.html'
+    };
+
+    function fallback(){
+      var body = encodeURIComponent(
+        'Agentur: ' + payload.agentur + '\n' +
+        'Ansprechpartner: ' + payload.name + '\n' +
+        'Paket: ' + (payload.paket || 'noch offen') + '\n\n' +
+        payload.projekt
+      );
+      show('Das Formular konnte gerade nicht senden. Bitte schicken Sie uns eine kurze Mail — ' +
+           '<a href="mailto:' + MAIL + '?subject=White-Label-Anfrage&body=' + body + '">Anfrage per E-Mail öffnen</a>. ' +
+           'Ihre Eingaben sind darin bereits enthalten.', true);
+      btn.disabled = false;
+      btn.textContent = 'Anfrage senden';
+    }
+
+    fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(r){
+      if (!r.ok) throw new Error('http ' + r.status);
+      show('Danke, ' + payload.name.split(' ')[0] + '. Ihre Anfrage ist angekommen — Sie hören innerhalb von 24 Stunden von uns.');
+      form.reset();
+      btn.textContent = 'Gesendet';
+    })
+    .catch(fallback);
+  });
+})();
+</script>
 
 <div class="footer-bottom">
   <span class="footer-copy">© 2026 Netvar Studio — Hugo Araujo</span>
