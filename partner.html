@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partnerprogramm — Netvar Studio</title>
+<meta name="description" content="White-Label-Produktion für Agenturen: fertige Websites in 48 Stunden, unter Ihrer Marke. Sie behalten den Kunden, wir liefern die Umsetzung.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;800&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#0d1922;--accent:#4a6b85;--mid:#3d5060;--soft:#607d8f;--mist:#8fa3b8;--warm:#f4f3f0;--white:#ffffff;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',Arial,sans-serif;background:var(--white);color:var(--primary);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(13,25,34,0.08);}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);text-decoration:none;}
+.nav-cta{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;background:var(--primary);color:var(--white);padding:10px 20px;text-decoration:none;}
+.hero{min-height:88vh;background:var(--primary);display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 80px;position:relative;overflow:hidden;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(74,107,133,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(74,107,133,0.07) 1px,transparent 1px);background-size:48px 48px;}
+.hero-bar-1{position:absolute;top:80px;left:48px;width:180px;height:4px;background:var(--white);}
+.hero-bar-2{position:absolute;top:104px;left:48px;width:110px;height:4px;background:var(--accent);}
+.hero-content{position:relative;z-index:2;max-width:900px;}
+.hero-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:28px;}
+.hero-h1{font-size:clamp(44px,6.4vw,80px);font-weight:800;line-height:1.02;color:var(--white);margin-bottom:32px;letter-spacing:-1px;}
+.hero-h1 em{color:var(--accent);font-style:normal;}
+.hero-sub{font-size:18px;font-weight:300;color:var(--mist);line-height:1.6;max-width:600px;margin-bottom:48px;}
+.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
+.btn-primary{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;background:var(--white);color:var(--primary);padding:16px 32px;text-decoration:none;display:inline-block;}
+.btn-ghost{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--mist);text-decoration:none;border-bottom:1px solid var(--mist);padding-bottom:2px;}
+.hero-stats{position:absolute;right:48px;bottom:80px;display:flex;flex-direction:column;gap:24px;z-index:2;}
+.stat-num{font-size:36px;font-weight:800;color:var(--white);line-height:1;}
+.stat-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;}
+section{padding:96px 48px;}
+.section-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.section-tag::before{content:'';display:block;width:32px;height:2px;background:var(--accent);}
+.section-title{font-size:clamp(30px,3.6vw,48px);font-weight:800;line-height:1.1;color:var(--primary);margin-bottom:24px;letter-spacing:-0.5px;}
+.section-lead{font-size:17px;font-weight:300;color:var(--mid);line-height:1.7;max-width:640px;margin-bottom:56px;}
+.services{background:var(--warm);}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;border:2px solid var(--primary);}
+.service-card{background:var(--white);padding:40px 32px;border-right:2px solid var(--primary);}
+.service-card:last-child{border-right:none;}
+.service-num{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--mist);margin-bottom:24px;}
+.service-name{font-size:20px;font-weight:800;color:var(--primary);margin-bottom:12px;}
+.service-desc{font-size:14px;font-weight:300;color:var(--mid);line-height:1.6;}
+.process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--primary);border-left:2px solid var(--primary);}
+.process-step{padding:40px 32px;border-right:2px solid var(--primary);border-bottom:2px solid var(--primary);position:relative;}
+.step-num{font-family:'IBM Plex Mono',monospace;font-size:48px;font-weight:400;color:rgba(13,25,34,0.08);line-height:1;position:absolute;top:20px;right:24px;}
+.step-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);margin-bottom:16px;}
+.step-name{font-size:16px;font-weight:800;color:var(--primary);margin-bottom:10px;}
+.step-desc{font-size:13px;font-weight:300;color:var(--mid);line-height:1.6;}
+.pricing{background:var(--primary);}
+.pricing .section-tag{color:var(--accent);}.pricing .section-title{color:var(--white);}
+.pricing .section-lead{color:var(--mist);}
+.tier-table{width:100%;border-collapse:collapse;border:2px solid var(--accent);background:rgba(255,255,255,0.02);}
+.tier-table th,.tier-table td{padding:18px 20px;text-align:left;border-bottom:1px solid rgba(143,163,184,0.18);font-size:14px;font-weight:300;color:var(--mist);}
+.tier-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--white);font-weight:400;border-bottom:2px solid var(--accent);}
+.tier-table td:first-child{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--soft);}
+.tier-table tr:last-child td{border-bottom:none;}
+.tier-price{font-size:26px;font-weight:800;color:var(--white);}
+.tier-time{font-size:20px;font-weight:800;color:var(--accent);}
+.tier-note{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--soft);margin-top:20px;letter-spacing:0.5px;}
+.boundary{background:var(--warm);}
+.boundary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;border:2px solid var(--primary);}
+.boundary-card{background:var(--white);padding:40px 32px;border-right:2px solid var(--primary);}
+.boundary-card:last-child{border-right:none;}
+.boundary-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:18px;}
+.boundary-name{font-size:18px;font-weight:800;color:var(--primary);margin-bottom:12px;}
+.boundary-desc{font-size:14px;font-weight:300;color:var(--mid);line-height:1.65;}
+.faq-item{border-bottom:1px solid rgba(13,25,34,0.12);padding:28px 0;max-width:820px;}
+.faq-q{font-size:17px;font-weight:800;color:var(--primary);margin-bottom:10px;}
+.faq-a{font-size:15px;font-weight:300;color:var(--mid);line-height:1.7;}
+.contact{background:var(--primary);}
+.contact .section-tag{color:var(--accent);}.contact .section-title{color:var(--white);}
+.contact-lead{font-size:17px;font-weight:300;color:var(--mist);line-height:1.7;max-width:600px;margin-bottom:40px;}
+.contact-mail{font-size:clamp(22px,3vw,34px);font-weight:800;color:var(--white);text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:4px;}
+.footer-bottom{background:#060d12;padding:24px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.04);}
+.footer-copy{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--soft);}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--soft);text-decoration:none;}
+@media(max-width:768px){
+  nav{padding:16px 24px;}.nav-links{display:none;}
+  section{padding:64px 24px;}.hero{padding:0 24px 64px;}.hero-stats{display:none;}
+  .service-card,.boundary-card{border-right:none;border-bottom:2px solid var(--primary);}
+  .tier-wrap{overflow-x:auto;}.tier-table{min-width:620px;}
+  .footer-bottom{padding:20px 24px;flex-direction:column;gap:12px;}
+}
+</style>
+<script defer data-domain="netvarstudio.de" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+<nav>
+  <a href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 184 68" width="138" height="51"><rect x="0" y="0" width="34" height="5" fill="#0d1922"/><rect x="0" y="14" width="21" height="5" fill="#4a6b85"/><text font-family="'DM Sans',Arial,sans-serif" font-weight="800" font-size="34" fill="#0d1922" x="50" y="40" letter-spacing="0.4">Netvar</text><circle cx="50" cy="55.5" r="2.5" fill="#4a6b85"/><text font-family="'DM Sans',Arial,sans-serif" font-weight="300" font-size="9.5" fill="#4a6b85" x="58.5" y="59.5" letter-spacing="3.2">Studio</text></svg></a>
+  <ul class="nav-links">
+    <li><a href="#ablauf">Ablauf</a></li>
+    <li><a href="#prozess">Prozess</a></li>
+    <li><a href="#preise">Konditionen</a></li>
+    <li><a href="#abgrenzung">Abgrenzung</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#kontakt" class="nav-cta">Gespräch anfragen</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-bar-1"></div>
+  <div class="hero-bar-2"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Partnerprogramm für Agenturen</div>
+    <h1 class="hero-h1">Sie verkaufen.<br>Wir liefern <em>in 48 Stunden</em>.</h1>
+    <p class="hero-sub">White-Label-Produktion für Webdesign. Ihre Marke, Ihr Kunde, Ihre Rechnung. Wir bleiben unsichtbar und liefern die fertige Website, während der Markt vier bis sechs Wochen braucht.</p>
+    <div class="hero-actions">
+      <a href="#preise" class="btn-primary">Konditionen ansehen</a>
+      <a href="#abgrenzung" class="btn-ghost">Sind Sie ein Wettbewerber?</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-num">48h</div><div class="stat-label">Standardlieferung</div></div>
+    <div><div class="stat-num">0</div><div class="stat-label">Kundenkontakt</div></div>
+    <div><div class="stat-num">100%</div><div class="stat-label">Ihre Marke</div></div>
+  </div>
+</section>
+
+<section class="services" id="ablauf">
+  <div class="section-tag">Ablauf</div>
+  <h2 class="section-title">Wie die Partnerschaft funktioniert.</h2>
+  <p class="section-lead">Sie bleiben die Agentur. Wir sind Produktionskapazität, die Sie zubuchen, wenn Ihr Kalender voll ist — ohne jemanden einzustellen.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-name">Sie behalten den Kunden</div>
+      <div class="service-desc">Die gesamte Kommunikation läuft über Sie. Wir sprechen zu keinem Zeitpunkt mit Ihrem Kunden — er erfährt nie, dass es uns gibt.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-name">Sie setzen den Preis</div>
+      <div class="service-desc">Sie kaufen zum Festpreis ein und kalkulieren Ihre Marge frei. Marktüblich sind 150 bis 250 Prozent Aufschlag.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-name">Wir liefern ohne Marke</div>
+      <div class="service-desc">Keine Signatur im Footer, kein Backlink, kein Hinweis im Quelltext. Sie erhalten die vollständigen Dateien und Zugänge.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-name">Kein Mindestvolumen</div>
+      <div class="service-desc">Ein Projekt zum Testen ist genauso willkommen wie zehn im Monat. Keine Aufnahmegebühr, keine Vertragsbindung.</div>
+    </div>
+  </div>
+</section>
+
+<section id="prozess">
+  <div class="section-tag">Prozess</div>
+  <h2 class="section-title">Von der Anfrage zur Übergabe.</h2>
+  <p class="section-lead">Ein fester Ablauf, damit Sie Ihrem Kunden verlässliche Termine nennen können.</p>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div><div class="step-dot"></div>
+      <div class="step-name">Briefing</div>
+      <div class="step-desc">Sie senden Inhalte, Logo und Wunschstruktur. Ein Formular, keine Abstimmungsschleifen.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div><div class="step-dot"></div>
+      <div class="step-name">Umsetzung</div>
+      <div class="step-desc">Wir bauen. Die Lieferfrist startet beim vollständigen Briefing, nicht bei der Beauftragung.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div><div class="step-dot"></div>
+      <div class="step-name">Vorschau</div>
+      <div class="step-desc">Sie erhalten einen Link auf unserer Staging-Umgebung — ohne jede Kennzeichnung, direkt vorzeigbar.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div><div class="step-dot"></div>
+      <div class="step-name">Korrekturen</div>
+      <div class="step-desc">Zwei Design- und eine Entwicklungsrunde sind enthalten. Sie bündeln das Feedback Ihres Kunden.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">05</div><div class="step-dot"></div>
+      <div class="step-name">Übergabe</div>
+      <div class="step-desc">Vollständige Dateien und Zugänge gehen an Sie. Danach 30 bis 60 Tage kostenfreier Support bei technischen Fehlern.</div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="preise">
+  <div class="section-tag">Konditionen</div>
+  <h2 class="section-title">Festpreise, keine Stundenzettel.</h2>
+  <p class="section-lead">Sie wissen Ihre Marge vor dem Angebot. Keine Nachberechnung, keine Überraschung nach Projektstart.</p>
+  <div class="tier-wrap">
+  <table class="tier-table">
+    <thead>
+      <tr><th></th><th>Starter</th><th>Growth</th><th>Premium</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Seiten</td><td>3</td><td>5</td><td>8</td></tr>
+      <tr><td>Kontaktformular</td><td>enthalten</td><td>enthalten</td><td>enthalten</td></tr>
+      <tr><td>Integration</td><td>—</td><td>—</td><td>Terminbuchung, CMS oder zweite Sprache</td></tr>
+      <tr><td>Lieferzeit</td><td class="tier-time">48 h</td><td class="tier-time">72 h</td><td class="tier-time">5 Werktage</td></tr>
+      <tr><td>Korrekturrunden</td><td>2 Design + 1 Dev</td><td>2 Design + 1 Dev</td><td>2 Design + 1 Dev</td></tr>
+      <tr><td>Support nach Launch</td><td>30 Tage</td><td>30 Tage</td><td>60 Tage</td></tr>
+      <tr><td>Ihr Einkaufspreis</td><td class="tier-price">990 €</td><td class="tier-price">1.490 €</td><td class="tier-price">1.990 €</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="tier-note">Alle Preise netto. Kleinunternehmerregelung nach § 19 UStG — es wird keine Umsatzsteuer ausgewiesen. Weitere Korrekturrunden nach Aufwand.</p>
+</section>
+
+<section class="boundary" id="abgrenzung">
+  <div class="section-tag">Abgrenzung</div>
+  <h2 class="section-title">Nein, wir jagen Ihre Kunden nicht.</h2>
+  <p class="section-lead">Netvar Studio betreibt ein eigenes Endkundengeschäft. Das verschweigen wir nicht — wir grenzen es vertraglich ab, damit Sie nicht darauf vertrauen müssen.</p>
+  <div class="boundary-grid">
+    <div class="boundary-card">
+      <div class="boundary-label">Geografisch</div>
+      <div class="boundary-name">Nur Hessen, direkt</div>
+      <div class="boundary-desc">Unser Endkundengeschäft findet ausschließlich in Frankfurt und Hessen statt. Außerhalb dieser Region akquirieren wir keine Endkunden — weder aktiv noch passiv.</div>
+    </div>
+    <div class="boundary-card">
+      <div class="boundary-label">Fachlich</div>
+      <div class="boundary-name">Nur Handwerk, direkt</div>
+      <div class="boundary-desc">Direkt bedienen wir ausschließlich Handwerksbetriebe. Gastronomie, Handel, Praxen, B2B und alles Übrige bleiben unberührt.</div>
+    </div>
+    <div class="boundary-card">
+      <div class="boundary-label">Vertraglich</div>
+      <div class="boundary-name">Schriftlich zugesichert</div>
+      <div class="boundary-desc">Wir unterzeichnen vor dem ersten Projekt eine Kundenschutz- und Verschwiegenheitsvereinbarung. Kein Kontakt zu Ihren Kunden, keine Weitergabe, keine Referenznennung ohne Ihre Freigabe.</div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-tag">FAQ</div>
+  <h2 class="section-title">Was Agenturen zuerst fragen.</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">Wie schaffen Sie 48 Stunden, wenn der Markt vier Wochen braucht?</div>
+    <div class="faq-a">Wir arbeiten mit einem eigenen Baukasten aus vorgefertigten Komponenten und automatisierter Vorbereitung. Der Aufwand liegt in der Anpassung, nicht im Aufbau von Null. Gern zeigen wir das an einem Testprojekt, bevor Sie ein echtes Kundenprojekt geben.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Was passiert, wenn die Qualität nicht stimmt?</div>
+    <div class="faq-a">Sie zahlen erst nach Ihrer Abnahme, nicht bei Beauftragung. Entspricht das Ergebnis nicht dem Briefing, korrigieren wir kostenfrei nach oder Sie treten ohne Kosten zurück.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Wem gehören die Dateien nach der Übergabe?</div>
+    <div class="faq-a">Ihnen. Vollständige Nutzungsrechte gehen mit der Übergabe auf Sie über. Kein Lizenzmodell, keine laufende Abhängigkeit von uns, kein Hinweis auf Netvar im Quelltext.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Sitzen Sie in Deutschland?</div>
+    <div class="faq-a">Netvar Studio ist in Frankfurt am Main gemeldet, die Produktion erfolgt derzeit remote. Die Kommunikation läuft schriftlich auf Deutsch und Englisch. Ab September 2026 sind wir dauerhaft vor Ort.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Können wir mit einem kleinen Projekt anfangen?</div>
+    <div class="faq-a">Das ist der bevorzugte Weg. Ein Starter-Projekt kostet Sie 990 € und zeigt in 48 Stunden, ob die Zusammenarbeit trägt. Kein Rahmenvertrag nötig.</div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="section-tag">Kontakt</div>
+  <h2 class="section-title">Recherchieren Sie uns zuerst.</h2>
+  <p class="contact-lead">Schauen Sie sich netvarstudio.de an, prüfen Sie die Referenzprojekte, lesen Sie die Abgrenzung oben. Wenn es passt, schreiben Sie uns eine Zeile — mit dem Projekt, das gerade in Ihrer Warteschlange liegt.</p>
+  <a href="mailto:info@netvarstudio.de?subject=Partnerprogramm" class="contact-mail">info@netvarstudio.de</a>
+</section>
+
+<div class="footer-bottom">
+  <span class="footer-copy">© 2026 Netvar Studio — Hugo Araujo</span>
+  <div class="footer-links"><a href="/#impressum">Impressum</a><a href="/#datenschutz">Datenschutz</a></div>
+</div>
+
+</body>
+</html>
