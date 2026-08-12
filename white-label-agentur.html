@@ -78,6 +78,14 @@ section{padding:96px 48px;}
 .faq-item{border-bottom:1px solid rgba(13,25,34,0.12);padding:28px 0;max-width:820px;}
 .faq-q{font-size:17px;font-weight:800;color:var(--primary);margin-bottom:10px;}
 .faq-a{font-size:15px;font-weight:300;color:var(--mid);line-height:1.7;}
+.demos{background:var(--white);}
+.demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;border:2px solid var(--primary);margin-bottom:8px;}
+.demo-card{background:var(--white);padding:36px 32px;border-right:2px solid var(--primary);text-decoration:none;display:block;transition:background .15s;}
+.demo-card:last-child{border-right:none;}
+.demo-card:hover{background:var(--warm);}
+.demo-cat{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mist);margin-bottom:20px;}
+.demo-name{font-size:19px;font-weight:800;color:var(--primary);margin-bottom:10px;}
+.demo-meta{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:0.5px;}
 .contact{background:var(--primary);}
 .contact .section-tag{color:var(--accent);}.contact .section-title{color:var(--white);}
 .contact-lead{font-size:17px;font-weight:300;color:var(--mist);line-height:1.7;max-width:600px;margin-bottom:40px;}
@@ -126,6 +134,7 @@ section{padding:96px 48px;}
     <li><a href="#prozess">Prozess</a></li>
     <li><a href="#preise">Konditionen</a></li>
     <li><a href="#abgrenzung">Abgrenzung</a></li>
+    <li><a href="#demos">Demos</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
   <a href="#kontakt" class="nav-cta">Gespräch anfragen</a>
@@ -288,10 +297,34 @@ section{padding:96px 48px;}
   </div>
 </section>
 
+<section class="demos" id="demos">
+  <div class="section-tag">Beispielumsetzungen</div>
+  <h2 class="section-title">Drei Demos, jede in unter 48 Stunden.</h2>
+  <p class="section-lead">Das sind keine Kundenprojekte, sondern eigene Demoseiten — wir sagen das offen, weil Sie es ohnehin an der Domain sehen würden. Für Sie sind sie trotzdem das Aussagekräftigste, was wir zeigen können: Sie sehen Bauqualität und Tempo, ohne dass ein Kunde dafür herhalten muss. Referenzen aus der Partnerschaft nennen wir grundsätzlich nicht — genau das schützt später auch Ihre Kunden.</p>
+  <div class="demo-grid">
+    <a class="demo-card" href="https://brandt-haustechnik.vercel.app" target="_blank" rel="noopener">
+      <div class="demo-cat">Klempner & Heizung</div>
+      <div class="demo-name">Brandt Haustechnik</div>
+      <div class="demo-meta">5 Seiten · Kontaktformular · 42 Std.</div>
+    </a>
+    <a class="demo-card" href="https://elektro-wagner.vercel.app" target="_blank" rel="noopener">
+      <div class="demo-cat">Elektrotechnik</div>
+      <div class="demo-name">Elektro Wagner</div>
+      <div class="demo-meta">3 Seiten · Kontaktformular · 31 Std.</div>
+    </a>
+    <a class="demo-card" href="https://praxis-dr-kellner.vercel.app" target="_blank" rel="noopener">
+      <div class="demo-cat">Zahnarztpraxis</div>
+      <div class="demo-name">Praxis Dr. Kellner</div>
+      <div class="demo-meta">6 Seiten · Terminanfrage · 47 Std.</div>
+    </a>
+  </div>
+  <p class="tier-note" style="color:var(--mid);">Möchten Sie Tempo und Qualität an Ihrem eigenen Fall prüfen? Nennen Sie uns unten ein Briefing — wir bauen einen unverbindlichen Entwurf, bevor Geld fließt.</p>
+</section>
+
 <section class="contact" id="kontakt">
   <div class="section-tag">Kontakt</div>
   <h2 class="section-title">Recherchieren Sie uns zuerst.</h2>
-  <p class="contact-lead">Schauen Sie sich netvarstudio.de an, prüfen Sie die Referenzprojekte, lesen Sie die Abgrenzung oben. Wenn es passt: sagen Sie uns, welches Projekt gerade in Ihrer Warteschlange liegt. Sie bekommen Preis und Termin, keine Verkaufsschleife.</p>
+  <p class="contact-lead">Sehen Sie sich die Demos oben an, lesen Sie die Abgrenzung. Wenn es passt: sagen Sie uns, welches Projekt gerade in Ihrer Warteschlange liegt. Sie bekommen Preis und Termin, keine Verkaufsschleife.</p>
 
   <form class="form-grid" id="partnerForm">
     <div>
