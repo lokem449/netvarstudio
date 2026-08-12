@@ -35,6 +35,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:fl
 .hero-h1{font-size:clamp(44px,6.4vw,80px);font-weight:800;line-height:1.02;color:var(--white);margin-bottom:32px;letter-spacing:-1px;}
 .hero-h1 em{color:var(--accent);font-style:normal;}
 .hero-sub{font-size:18px;font-weight:300;color:var(--mist);line-height:1.6;max-width:600px;margin-bottom:48px;}
+.hero-garantie{font-size:15px;font-weight:400;color:var(--white);margin-bottom:24px;padding-left:14px;border-left:3px solid var(--accent);}
 .hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
 .btn-primary{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;background:var(--white);color:var(--primary);padding:16px 32px;text-decoration:none;display:inline-block;}
 .btn-ghost{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--mist);text-decoration:none;border-bottom:1px solid var(--mist);padding-bottom:2px;}
@@ -92,6 +93,7 @@ section{padding:96px 48px;}
 .contact .section-tag{color:var(--accent);}.contact .section-title{color:var(--white);}
 .contact-lead{font-size:17px;font-weight:300;color:var(--mist);line-height:1.7;max-width:600px;margin-bottom:40px;}
 .contact-mail{font-size:clamp(22px,3vw,34px);font-weight:800;color:var(--white);text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:4px;}
+.form-garantie{font-size:15px;font-weight:300;color:var(--white);background:rgba(74,107,133,0.18);border-left:3px solid var(--accent);padding:14px 18px;margin-bottom:28px;max-width:720px;line-height:1.6;}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:720px;}
 .form-grid .full{grid-column:1/-1;}
 .form-grid label{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
@@ -150,9 +152,10 @@ section{padding:96px 48px;}
     <div class="hero-tag">Partnerprogramm für Agenturen</div>
     <h1 class="hero-h1">Sie verkaufen.<br>Wir liefern <em>in 48 Stunden</em>.</h1>
     <p class="hero-sub">White-Label-Produktion für Webdesign. Ihre Marke, Ihr Kunde, Ihre Rechnung. Wir bleiben unsichtbar und liefern die fertige Website, während der Markt vier bis sechs Wochen braucht.</p>
+    <p class="hero-garantie">Sie zahlen erst nach Ihrer Abnahme — nicht bei Beauftragung.</p>
     <div class="hero-actions">
-      <a href="#preise" class="btn-primary">Konditionen ansehen</a>
-      <a href="#abgrenzung" class="btn-ghost">Sind Sie ein Wettbewerber?</a>
+      <a href="#kontakt" class="btn-primary">Projekt anfragen</a>
+      <a href="#preise" class="btn-ghost">Erst die Konditionen ansehen</a>
     </div>
   </div>
   <div class="hero-stats">
@@ -328,6 +331,7 @@ section{padding:96px 48px;}
   <h2 class="section-title">Recherchieren Sie uns zuerst.</h2>
   <p class="contact-lead">Sehen Sie sich die Demos oben an, lesen Sie die Abgrenzung. Wenn es passt: sagen Sie uns, welches Projekt gerade in Ihrer Warteschlange liegt. Sie bekommen Preis und Termin, keine Verkaufsschleife.</p>
 
+  <p class="form-garantie">Kein Risiko: Sie zahlen erst, wenn das Ergebnis Ihrem Briefing entspricht. Entspricht es nicht, treten Sie ohne Kosten zurück.</p>
   <form class="form-grid" id="partnerForm">
     <div>
       <label for="agentur">Agentur</label>
@@ -358,7 +362,7 @@ section{padding:96px 48px;}
       <input type="checkbox" id="consent" name="consent" required>
       <label for="consent">Ja, Netvar Studio darf mich zu dieser Anfrage per E-Mail kontaktieren. Ich kann das jederzeit formlos widerrufen. Hinweise zum Datenschutz finden Sie <a href="/#datenschutz" target="_blank" rel="noopener">hier</a>.</label>
     </div>
-    <button type="submit" class="form-submit" id="partnerSubmit">Anfrage senden</button>
+    <button type="submit" class="form-submit" id="partnerSubmit">Preis und Termin erhalten</button>
     <div class="form-status" id="partnerStatus"></div>
   </form>
 
