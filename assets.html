@@ -62,6 +62,23 @@ h1{font-size:clamp(28px,5vw,40px);font-weight:800;line-height:1.1;margin-bottom:
 <script>
 const form = document.getElementById('assetsForm');
 const msg = document.getElementById('msg');
+
+// Der Link aus der Willkommens-Mail bringt E-Mail und Token mit: ?e=...&t=...
+// Ohne Token weist der Server die Einreichung ab, denn die E-Mail allein
+// identifiziert niemanden.
+const params = new URLSearchParams(location.search);
+const token = params.get('t') || '';
+const mail = params.get('e') || '';
+if (mail) {
+  const campo = form.querySelector('input[name="email"]');
+  campo.value = mail;
+  campo.readOnly = true;
+}
+if (!token) {
+  msg.className = 'msg error';
+  msg.textContent = 'Dieser Link ist unvollständig. Bitte öffnen Sie das Formular über den Link aus unserer Willkommens-Mail, oder schreiben Sie uns an info@netvarstudio.de.';
+}
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = form.querySelector('button');
@@ -69,6 +86,7 @@ form.addEventListener('submit', async (e) => {
   btn.textContent = 'Wird gesendet...';
   msg.className = 'msg';
   const data = Object.fromEntries(new FormData(form));
+  data.token = token;
   try {
     const res = await fetch('https://n8n-f3xi.sliplane.app/webhook/netvar-assets', {
       method: 'POST',
