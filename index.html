@@ -139,8 +139,26 @@ section{padding:96px 48px;}
 .footer-links{display:flex;gap:24px;}
 .footer-links a{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--soft);text-decoration:none;}
 @media(max-width:768px){nav{padding:16px 24px;}.nav-links{display:none;}section{padding:64px 24px;}.hero{padding:0 24px 64px;}.hero-stats{display:none;}.about-inner,.contact-inner{grid-template-columns:1fr;gap:40px;}.impressum{padding:40px 24px;}.footer-bottom{padding:20px 24px;flex-direction:column;gap:12px;}}
-</style>
+.form-status{display:none;margin-top:16px;padding:14px 16px;font-size:14px;line-height:1.6;border-left:3px solid var(--accent);background:rgba(255,255,255,0.06);}.form-status.show{display:block;}.form-status.err{border-left-color:#c96;}.form-status a{color:inherit;font-weight:700;}</style>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="8c9e7b6a-d30c-439e-a202-0442e2f24130"></script>
+<style id="chatCss">
+#nvChatBtn{position:fixed;right:22px;bottom:22px;z-index:9998;width:56px;height:56px;border-radius:50%;border:0;cursor:pointer;background:var(--primary,#0d1922);color:#fff;box-shadow:0 6px 24px rgba(13,25,34,.28);font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;}
+#nvChatBtn:hover{transform:translateY(-2px);}
+#nvChat{position:fixed;right:22px;bottom:88px;z-index:9999;width:min(360px,calc(100vw - 32px));height:min(480px,calc(100vh - 130px));background:#fff;border:1px solid rgba(13,25,34,.14);box-shadow:0 18px 48px rgba(13,25,34,.22);display:none;flex-direction:column;overflow:hidden;}
+#nvChat.on{display:flex;}
+.nv-top{background:var(--primary,#0d1922);color:#fff;padding:14px 16px;font-size:14px;font-weight:700;display:flex;justify-content:space-between;align-items:center;}
+.nv-top small{display:block;font-weight:400;opacity:.7;font-size:11px;margin-top:2px;}
+.nv-x{background:none;border:0;color:#fff;font-size:20px;cursor:pointer;line-height:1;}
+.nv-corpo{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;background:#f7f8f9;}
+.nv-msg{max-width:86%;padding:10px 13px;font-size:14px;line-height:1.55;white-space:pre-wrap;word-break:break-word;}
+.nv-eu{align-self:flex-end;background:var(--primary,#0d1922);color:#fff;}
+.nv-ele{align-self:flex-start;background:#fff;border:1px solid rgba(13,25,34,.1);color:#16202a;}
+.nv-baixo{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(13,25,34,.1);background:#fff;}
+.nv-baixo input{flex:1;padding:11px 12px;border:1px solid rgba(13,25,34,.2);font-size:14px;font-family:inherit;}
+.nv-baixo button{padding:11px 16px;border:0;background:var(--primary,#0d1922);color:#fff;cursor:pointer;font-size:13px;font-weight:700;}
+.nv-baixo button:disabled{opacity:.5;cursor:wait;}
+@media(max-width:520px){#nvChat{right:8px;left:8px;width:auto;bottom:80px;}#nvChatBtn{right:14px;bottom:14px;}}
+</style>
 </head>
 <body>
 <nav>
@@ -211,16 +229,19 @@ section{padding:96px 48px;}
     <div>
       <div class="contact-text"><p>Egal wo in Deutschland Ihr Betrieb sitzt — schreiben Sie uns. Wir antworten innerhalb von 24 Stunden und analysieren Ihre aktuelle Online-Präsenz kostenlos.</p></div>
       <div class="contact-info">
-        <div class="contact-line"><span class="contact-line-label">E-Mail</span><span class="contact-line-val">info@netvarstudio.de</span></div>
-        <div class="contact-line"><span class="contact-line-label">Tel.</span><span class="contact-line-val">+49 (0) — — —</span></div>
+        <div class="contact-line"><span class="contact-line-label">E-Mail</span><a class="contact-line-val" href="mailto:info@netvarstudio.de?subject=Anfrage%20%C3%BCber%20netvarstudio.de">info@netvarstudio.de</a></div>
+        
         <div class="contact-line"><span class="contact-line-label">Betrieb</span><span class="contact-line-val">Deutschlandweit, remote</span></div>
       </div>
     </div>
-    <div class="contact-form">
-      <div class="form-group"><label class="form-label">Name / Betrieb</label><input type="text" class="form-input" placeholder="Max Mustermann — Klempner GmbH"></div>
-      <div class="form-group"><label class="form-label">E-Mail</label><input type="email" class="form-input" placeholder="max@beispiel.de"></div>
-      <div class="form-group"><label class="form-label">Nachricht</label><textarea class="form-textarea" placeholder="Kurze Beschreibung Ihres Betriebs..."></textarea></div>
-      <button class="btn-submit">Nachricht senden</button>
+    <form class="contact-form" id="kontaktForm">
+      <div class="form-group"><label class="form-label" for="kName">Name / Betrieb</label><input id="kName" name="name" type="text" class="form-input" required autocomplete="organization" placeholder="Max Mustermann — Klempner GmbH"></div>
+      <div class="form-group"><label class="form-label" for="kMail">E-Mail</label><input id="kMail" name="email" type="email" class="form-input" required autocomplete="email" placeholder="max@beispiel.de"></div>
+      <div class="form-group"><label class="form-label" for="kSite">Ihre Website (falls vorhanden)</label><input id="kSite" name="website" type="url" class="form-input" placeholder="https://ihre-firma.de"></div>
+      <div class="form-group"><label class="form-label" for="kMsg">Nachricht</label><textarea id="kMsg" name="message" class="form-textarea" placeholder="Kurze Beschreibung Ihres Betriebs..."></textarea></div>
+      <button type="submit" class="btn-submit" id="kSubmit">Nachricht senden</button>
+      <div id="kStatus" class="form-status"></div>
+    </form>
     </div>
   </div>
 </section>
@@ -238,5 +259,135 @@ section{padding:96px 48px;}
     <div class="footer-links"><a href="/white-label-agentur">Für Agenturen</a><a href="#impressum">Impressum</a><a href="#datenschutz">Datenschutz</a></div>
   </div>
 </footer>
+<script>
+(function(){
+  // O formulario antes nao enviava nada: sem <form>, sem action, sem fetch.
+  // Quem preenchia perdia a mensagem sem saber. Agora vai para o WF6 no n8n.
+  var API = 'https://n8n-f3xi.sliplane.app/webhook/netvar-kontakt';
+  var MAIL = 'info@netvarstudio.de';
+  var form = document.getElementById('kontaktForm');
+  if (!form) return;
+  var btn = document.getElementById('kSubmit');
+  var box = document.getElementById('kStatus');
+
+  function avisa(txt, erro){
+    box.className = 'form-status show' + (erro ? ' err' : '');
+    box.innerHTML = txt;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Wird gesendet…';
+    var dados = {
+      name: document.getElementById('kName').value.trim(),
+      email: document.getElementById('kMail').value.trim(),
+      website: document.getElementById('kSite').value.trim(),
+      message: document.getElementById('kMsg').value.trim(),
+      source: 'home'
+    };
+
+    // Rede de seguranca: se o envio falhar, o visitante nao pode ficar sem
+    // caminho. Abre o cliente de email com tudo ja preenchido.
+    function fallback(){
+      var corpo = encodeURIComponent(
+        'Name: ' + dados.name + '\n' +
+        (dados.website ? 'Website: ' + dados.website + '\n' : '') + '\n' +
+        dados.message);
+      avisa('Das Formular konnte gerade nicht senden. ' +
+            '<a href="mailto:' + MAIL + '?subject=Anfrage&body=' + corpo + '">' +
+            'Anfrage per E-Mail öffnen</a> — Ihre Eingaben sind bereits enthalten.', true);
+      btn.disabled = false;
+      btn.textContent = 'Nachricht senden';
+    }
+
+    fetch(API, { method: 'POST', headers: {'Content-Type':'application/json'},
+                 body: JSON.stringify(dados) })
+      .then(function(r){
+        if (!r.ok) throw new Error('http ' + r.status);
+        return r.json().catch(function(){ return { ok: true }; });
+      })
+      .then(function(j){
+        if (j && j.ok === false) throw new Error('servidor');
+        avisa('Vielen Dank, ' + dados.name.split(' ')[0] +
+              '. Ihre Nachricht ist angekommen — wir melden uns innerhalb von 24 Stunden.');
+        form.reset();
+        btn.textContent = 'Gesendet';
+      })
+      .catch(fallback);
+  });
+})();
+</script>
+<button id="nvChatBtn" aria-label="Chat öffnen">&#128172;</button>
+<div id="nvChat" role="dialog" aria-label="Chat mit Netvar Studio">
+  <div class="nv-top"><div>Netvar Studio<small>Digitaler Assistent — antwortet sofort</small></div><button class="nv-x" id="nvX" aria-label="Schließen">&times;</button></div>
+  <div class="nv-corpo" id="nvCorpo"></div>
+  <div class="nv-baixo"><input id="nvIn" type="text" placeholder="Ihre Frage…" autocomplete="off" maxlength="1000"><button id="nvGo">Senden</button></div>
+</div>
+<script>
+(function(){
+  // O widget nasce fechado: nao rouba atencao de quem esta lendo, e nao gasta
+  // token de quem nunca abriu.
+  var API = 'https://netvar-mockup.hugoluiz449.workers.dev/chat';
+  var MAIL = 'info@netvarstudio.de';
+  var btn = document.getElementById('nvChatBtn'), cx = document.getElementById('nvChat');
+  var corpo = document.getElementById('nvCorpo'), inp = document.getElementById('nvIn');
+  var go = document.getElementById('nvGo'), x = document.getElementById('nvX');
+  var historico = [], aberto = false;
+
+  function poe(texto, meu){
+    var d = document.createElement('div');
+    d.className = 'nv-msg ' + (meu ? 'nv-eu' : 'nv-ele');
+    d.textContent = texto;
+    corpo.appendChild(d);
+    corpo.scrollTop = corpo.scrollHeight;
+    return d;
+  }
+
+  function abre(){
+    cx.classList.add('on');
+    if (!aberto){
+      aberto = true;
+      // Diz o que e logo de cara. Fingir ser humano seria desonesto.
+      poe('Guten Tag! Ich bin der digitale Assistent von Netvar Studio. Fragen Sie mich zu Paketen, Preisen oder Ablauf — oder schildern Sie kurz, was Sie brauchen.', false);
+    }
+    inp.focus();
+  }
+
+  btn.addEventListener('click', function(){ cx.classList.contains('on') ? cx.classList.remove('on') : abre(); });
+  x.addEventListener('click', function(){ cx.classList.remove('on'); });
+
+  function semCaminho(){
+    // Nunca mostrar erro tecnico ao visitante: mostrar o caminho que funciona.
+    poe('Der Assistent ist gerade nicht erreichbar. Schreiben Sie uns bitte direkt an ' + MAIL + ' — wir antworten innerhalb von 24 Stunden.', false);
+  }
+
+  function envia(){
+    var t = inp.value.trim();
+    if (!t) return;
+    poe(t, true);
+    historico.push({ role: 'user', content: t });
+    inp.value = '';
+    go.disabled = true;
+    var esperando = poe('…', false);
+
+    fetch(API, { method:'POST', headers:{'Content-Type':'application/json'},
+                 body: JSON.stringify({ mensagem: t, historico: historico.slice(0,-1) }) })
+      .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(j){
+        esperando.remove();
+        var resp = (j && j.resposta) || '';
+        if (!resp) { semCaminho(); return; }
+        poe(resp, false);
+        historico.push({ role:'assistant', content: resp });
+      })
+      .catch(function(){ esperando.remove(); semCaminho(); })
+      .then(function(){ go.disabled = false; inp.focus(); });
+  }
+
+  go.addEventListener('click', envia);
+  inp.addEventListener('keydown', function(e){ if (e.key === 'Enter') envia(); });
+})();
+</script>
 </body>
 </html>
